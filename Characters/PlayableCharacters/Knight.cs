@@ -1,9 +1,9 @@
-public class Knight : Character
+public class Knight : PlayableCharacter
 {
     public Shield Shield;
     public override void Attack(Character target)
     {
-        target.Damaged(this.ComputeDamage(0));
+        target.Damaged(this.ComputeDamage());
     }
     public override void Damaged(float damage)
     {

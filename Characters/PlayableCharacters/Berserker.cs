@@ -16,9 +16,16 @@ public class Berserker : Character
         return damage * (this.Resistance.CurrentValue + this.Mana.Current * this.ManaToResistance);
     }
 
-    protected override float ComputeDamage(float damage)
+    protected override float ComputeDamage()
     {
-        return damage * (this.Strength.CurrentValue + this.Mana.Current * this.ManaToStrength);
+        if(this.SelectedWeapon == -1)
+        {
+            return this.Strength.CurrentValue;
+        }
+        else
+        {
+            return  this.weapons[this.SelectedWeapon].OutputDamage() * (this.Strength.CurrentValue + this.Mana.Current * this.ManaToStrength);
+        }
     }
 
     public override void Damaged(float damage)
@@ -37,7 +44,7 @@ public class Berserker : Character
 
     public override void Attack(Character target)
     {
-        target.Damaged(this.ComputeDamage(0));
+        target.Damaged(this.ComputeDamage());
     }
 
     public override void EndTurn()

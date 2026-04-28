@@ -1,8 +1,8 @@
-public class Demon : Character
+public class Demon : Enemy
 {
     public override void Attack(Character target)
     {
-        target.Damaged(this.ComputeDamage(0));
+        target.Damaged(this.ComputeDamage());
     }
     public override void Damaged(float damage)
     {
@@ -14,7 +14,12 @@ public class Demon : Character
                 )
             );
     }
-    
+
+    public override char GetSymbol()
+    {
+        return 'D';
+    }
+
     public Demon(
         string name, 
         string description = "The Most Basic Enemy", 

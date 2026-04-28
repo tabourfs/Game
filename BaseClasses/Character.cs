@@ -10,6 +10,8 @@ public abstract class Character: IEndTurn
     public Resistance Resistance;
     public Mana Mana;
     public List<Card> Cards = new List<Card>();
+    public List<Weapon> weapons = new List<Weapon>();
+    protected int SelectedWeapon = -1;
     
 
     public string Name
@@ -21,14 +23,26 @@ public abstract class Character: IEndTurn
         get{return _description;}
     }
 
+    public virtual char GetSymbol()
+    {
+        return 'C';
+    }
     public virtual void Attack(Character target)
     {
         
     }
 
-    protected virtual float ComputeDamage(float damage)
+    protected virtual float ComputeDamage()
     {
-        return damage * this.Strength.CurrentValue;
+        if(this.SelectedWeapon == -1)
+        {
+            return this.Strength.CurrentValue;
+        }
+        else
+        {
+            return  this.weapons[this.SelectedWeapon].OutputDamage() * this.Strength.CurrentValue; 
+        }
+        
     }
     protected virtual float ComputeIncomingDamage(float damage)
     {
@@ -42,6 +56,21 @@ public abstract class Character: IEndTurn
     public virtual void EndTurn()
     {
         
+    }
+
+    public void ChangeSelectedWeapon(int number)
+    {
+        if(number >= 0 && number < this.weapons.Count)
+        {
+            if(this.weapons[number] != null)
+            {
+                this.SelectedWeapon = number;
+            }
+        }
+        else if(number == -1)
+        {
+            this.SelectedWeapon = -1;
+        }
     }
 
     public Character(
