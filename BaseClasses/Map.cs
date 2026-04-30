@@ -106,6 +106,13 @@ public class Map(int displayedWidth = 16,  int displayedHeight = 10, int realWid
                                     }
                                 }
                             }
+                            if(
+                                (width == _playerX - 1 || width == _playerX + 1)
+                                && (height == _playerY - 1 || height == _playerY + 1)
+                                )
+                            {
+                                _map[width, height].Attack(_player);
+                            }
                         }
                         if(_map[_playerX + w, _playerY + h] != null)
                         {
@@ -124,8 +131,9 @@ public class Map(int displayedWidth = 16,  int displayedHeight = 10, int realWid
                 }
                 
             }
-            Console.WriteLine();
+            _player.ShowStatus();
         }
+        
     }
 
     public void AddEnemy(Enemy enemy)

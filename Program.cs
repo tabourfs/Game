@@ -98,7 +98,7 @@ void Menu(string type = "Main")
         Console.WriteLine(" ║");
         Console.Write(" ║ ");
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
-        Console.Write("Default Is 60 FPS");
+        Console.Write("Default Is 30 FPS");
         Console.ForegroundColor = ConsoleColor.White;
         Console.WriteLine("                        ║");
         Console.WriteLine(" ╠══════════════════════════════════════════╣");

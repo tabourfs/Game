@@ -8,6 +8,15 @@ public abstract class PlayableCharacter : Character, IPlayer
     {
         return "Player";
     }
+
+    public virtual void ShowStatus()
+    {
+        Console.WriteLine($"Health: {this.Health.Current} / {this.Health.Max}");
+        Console.WriteLine($"Life: {this.Life.Current} / {this.Life.Max}");
+        Console.WriteLine($"Level: {this.leveling.Level}");
+        Console.WriteLine($"XP: {this.leveling.XP}");
+    }
+
     public PlayableCharacter(
         string name, 
         string description = "", 

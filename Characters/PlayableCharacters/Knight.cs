@@ -28,6 +28,12 @@ public class Knight : PlayableCharacter
         return "Knight";
     }
 
+    public override void ShowStatus()
+    {
+        Console.WriteLine($"Shield: {this.Shield.Current} / {this.Shield.Max}");
+        base.ShowStatus();
+    }
+
     public Knight(
         string name, 
         string description = "The Knight Is A Basic But Balanced Character", 
