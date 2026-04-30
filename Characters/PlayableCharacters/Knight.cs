@@ -23,6 +23,11 @@ public class Knight : PlayableCharacter
         this.Shield.Regeneration();
     }
 
+    public override string GetPlayerType()
+    {
+        return "Knight";
+    }
+
     public Knight(
         string name, 
         string description = "The Knight Is A Basic But Balanced Character", 

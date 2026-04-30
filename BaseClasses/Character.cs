@@ -13,7 +13,10 @@ public abstract class Character: IEndTurn
     public List<Weapon> weapons = new List<Weapon>();
     protected int SelectedWeapon = -1;
     
-
+    public int GetSelectedWeapon
+    {
+        get{return SelectedWeapon;}
+    }
     public string Name
     {
         get{return _name;}

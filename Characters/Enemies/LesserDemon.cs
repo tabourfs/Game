@@ -1,4 +1,4 @@
-public class Demon : Enemy
+public class LesserDemon : Enemy
 {
     public override void Attack(Character target)
     {
@@ -20,17 +20,20 @@ public class Demon : Enemy
         return 'D';
     }
 
-    public Demon(
+    public LesserDemon(
         string name, 
         string description = "The Most Basic Enemy", 
         Health? health = null, 
-        Shield? shield = null, 
         Life? life = null,
         Strength? strength = null,
         Resistance? resistance = null,
         Mana? mana = null
         ) : base (name, description, health, life, strength, resistance, mana)
     {
-        
+        if(health == null)
+        {
+            this.Health.Max = 50;
+            this.Health.Current = 50;
+        } 
     }
 }

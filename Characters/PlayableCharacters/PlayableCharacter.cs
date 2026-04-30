@@ -1,8 +1,12 @@
-public abstract class PlayableCharacter : Character
+public abstract class PlayableCharacter : Character, IPlayer
 {
     public override char GetSymbol()
     {
         return 'P';
+    }
+    public virtual string GetPlayerType()
+    {
+        return "Player";
     }
     public PlayableCharacter(
         string name, 

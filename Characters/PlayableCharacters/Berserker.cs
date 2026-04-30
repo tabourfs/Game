@@ -1,7 +1,7 @@
 using System.Diagnostics.Metrics;
 using System.Runtime.InteropServices.Marshalling;
 
-public class Berserker : Character
+public class Berserker : PlayableCharacter
 {
     private Health BasicHealth; private Health Shield;
     public float ManaToResistance; public float ManaToStrength; public float ShieldToHealth;
@@ -53,6 +53,10 @@ public class Berserker : Character
         this.Shield.Regeneration();
     }
 
+    public override string GetPlayerType()
+    {
+        return "Berserker";
+    }
 
     public Berserker(
         string name, 

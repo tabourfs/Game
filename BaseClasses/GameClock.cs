@@ -14,8 +14,12 @@ public class GameClock(float fps = 60)
     public async Task EndFrame()
     {
         this.TimeElasped = (DateTime.Now.Ticks - this.TimeElasped) / TimeSpan.TicksPerMillisecond;
-        await Task.Delay(
-            (int)(1000/60 - this.TimeElasped)
-        );
+        if((int)(1000/FPS - this.TimeElasped) > 0)
+        {
+            await Task.Delay(
+                (int)(1000/FPS - this.TimeElasped)
+            );
+        }
+        
     }
 }
