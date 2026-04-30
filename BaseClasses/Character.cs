@@ -4,7 +4,7 @@ using System.Net;
 public abstract class Character: IEndTurn
 {   protected string _name; protected string _description;
     public Health Health;
-
+    public Leveling leveling = new Leveling();
     public Life Life;
     public Strength Strength;
     public Resistance Resistance;
