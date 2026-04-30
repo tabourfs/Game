@@ -118,6 +118,7 @@ public class Map(int displayedWidth = 16,  int displayedHeight = 10, int realWid
                         {
                             Console.Write($"[{_map[_playerX + w, _playerY + h].GetSymbol()}]");
                         }
+                        
                         Console.ForegroundColor = ConsoleColor.White;  
                     }
                     else
@@ -131,7 +132,7 @@ public class Map(int displayedWidth = 16,  int displayedHeight = 10, int realWid
                 }
                 
             }
-            _player.ShowStatus();
+            
         }
         
     }
