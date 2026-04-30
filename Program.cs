@@ -179,6 +179,8 @@ while (running)
             map.EndTurn();
             ticks = 0;
             enemyUpdate = true;
+            LesserDemon lesserDemon = new LesserDemon("E");
+            map.AddEnemy(lesserDemon);
         }
 
 
